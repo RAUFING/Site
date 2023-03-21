@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Игра</title>
+    <style>
+        .myfield{
+            border:1px solid #ccc; 
+            border-radius:5px;
+            height:25px;
+            width:30px;
+            margin: 10px 10px 10px 0;
+        }
+        .row {
+  overflow: hidden;
+}
+
+.row > div {
+  float: left;
+  width: 50%;
+}
+
+label {
+  display: inline-block;
+  padding-right: .66em;
+  position: relative;
+}
+
+label.required::after {
+  content: "*";
+  color: #c00;
+  display: block;
+  position: absolute;
+    top: 0;
+    right: 0;
+}
+    </style>
+</head>
+<body background="{% static 'images/background.jpg' %}">
+    <h1 align="center" style="color: #c00;">{{num}}</h1>
+    <form method="post" align="center">
+        {% csrf_token %}
+        
+            {{form1}}
+            <br>
+            {{form2}}
+            <br>
+            {{form3}}
+            <br>
+            
+            
+            
+        
+        <input type="submit" value="Проверить" style="color: cadetblue; background-color: rgb(117, 115, 46);">
+    </form>
+</body>
+</html>
